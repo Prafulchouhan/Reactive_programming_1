@@ -61,7 +61,7 @@ class ReviewControllerTest {
         Mockito.when(reviewService.getReview(Mockito.anyInt())).thenReturn(reviewFlux);
         webTestClient.get()
                 .uri("/review/{id}",1)
-                .accept(MediaType.APPLICATION_JSON)
+                .accept(MediaType.valueOf(MediaType.TEXT_EVENT_STREAM_VALUE))
                 .exchange()
                 .expectStatus().isOk()
                 .expectBodyList(Review.class)

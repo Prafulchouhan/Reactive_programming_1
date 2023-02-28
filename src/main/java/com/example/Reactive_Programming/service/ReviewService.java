@@ -36,3 +36,24 @@ public class ReviewService {
     }
 
 }
+/*
+@Service
+public class ReviewService {
+
+    @Autowired
+    private ReviewRepo repo;
+
+    public List<Review> getReview(Integer bookId){
+        return repo.findReviewByBookId(bookId);
+    }
+
+    public Review createReview(Review review){
+        return repo.save(review);
+    }
+
+    public Void deleteReview(Integer id){
+        return repo.deleteById(id);
+    }
+
+}
+ */

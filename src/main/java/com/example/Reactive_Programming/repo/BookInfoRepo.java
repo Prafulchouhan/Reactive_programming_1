@@ -5,3 +5,6 @@ import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 
 public interface BookInfoRepo extends ReactiveCrudRepository<BookInfo,Integer> {
 }
+//public interface BookInfoRepo extends JpaRepository<BookInfo,Integer> {
+//}
+

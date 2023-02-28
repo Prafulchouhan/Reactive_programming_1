@@ -94,3 +94,32 @@ public class BookService {
                 .zipWith(review, (b, r) -> new Book(b, r)).log();
     }
 }
+
+/*
+@Slf4j
+@RequiredArgsConstructor
+@Service
+public class BookService {
+    private final BookInfoService bookInfoService;
+    private final ReviewService reviewService;
+
+    public List<Book> getBooks() {
+        List<BookInfo> allBook = bookInfoService.getBooks();
+        List<Book> book=new Book();
+
+        allBook.stream().forEach(info->{
+        List<Review> review=reviewService.getReview(info.getId());
+        Book tempBook=new Book(info,review);
+        book.add(tempBook);
+        }
+        return book;
+    }
+
+    public Mono<Book> getBookById(Integer id) {
+        Book book = bookInfoService.getBookById(id);
+        List<review> review = reviewService.getReview(id);
+        return new Book(book,review);
+    }
+}
+ */
+

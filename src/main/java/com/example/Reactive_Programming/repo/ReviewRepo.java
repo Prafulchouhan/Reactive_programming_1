@@ -12,3 +12,9 @@ public interface ReviewRepo extends R2dbcRepository<Review, Integer> {
     @Query("select r.id,r.book_id,r.rating,r.comments from review r where r.book_id = :bookId")
     Flux<Review> findReviewByBookId(Integer bookId);
 }
+
+//public interface ReviewRepo extends JpaRepository<Review, Integer> {
+//
+//    @Query("select r.id,r.book_id,r.rating,r.comments from review r where r.book_id = :bookId")
+//    List<Review> findReviewByBookId(Integer bookId);
+//}

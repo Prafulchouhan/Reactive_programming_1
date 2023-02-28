@@ -42,3 +42,38 @@ public class BookInfoService {
     }
 
 }
+
+/*
+@Service
+public class BookInfoService {
+    @Autowired
+    private BookInfoRepo repo;
+
+    public BookInfo createBook(BookInfo book){
+        return repo.save(book);
+    }
+
+    public List<BookInfo> getBooks(){
+        return repo.findAll();
+    }
+
+    public BookInfo getBookById(Integer id){
+        return repo.findById(id);
+    }
+
+    public Void deleteBookById(Integer id){
+        return repo.deleteById(id);
+    }
+
+    public BookInfo updateBook(BookInfo bookInfo,Integer id){
+        BookInfo book=repo.findById(id);
+
+        book.setTitle( bookInfo.getTitle()!=null ? bookInfo.getTitle() : book.getTitle());
+        book.setAuthor(bookInfo.getAuthor()!=null?bookInfo.getAuthor():book.getAuthor());
+        book.setISBN(book.getISBN()!=null? book.getISBN() : book.getISBN());
+
+        repo.save(book);
+    }
+
+}
+ */

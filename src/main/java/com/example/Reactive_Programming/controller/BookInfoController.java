@@ -9,6 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
+
+import static org.springframework.http.MediaType.TEXT_EVENT_STREAM_VALUE;
+
 @RestController
 @RequestMapping("/bookinfo")
 public class BookInfoController {
@@ -23,8 +27,29 @@ public class BookInfoController {
         return service.createBook(book);
     }
 
-    @GetMapping
+    @GetMapping(value = "",produces = TEXT_EVENT_STREAM_VALUE)
     public Flux<BookInfo> getAllBooks(){
+        return service.getBooks().delayElements(Duration.ofSeconds(1));
+    }
+}
+/*
+@RestController
+@RequestMapping("/bookinfo")
+public class BookInfoController {
+    @Autowired
+    private BookInfoService service;
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public BookInfo createBook(
+            @RequestBody BookInfo book
+    ){
+        return service.createBook(book);
+    }
+
+    @GetMapping(value = "")
+    public List<BookInfo> getAllBooks(){
         return service.getBooks();
     }
 }
+ */

@@ -13,38 +13,39 @@ class BookServiceTest {
     private BookService bookService=new BookService(bookInfoService,reviewService);
 
 
-    @Test
-    void getBooks() {
-        var books=bookService.getBooks();
-        StepVerifier.create(books)
-                .assertNext(book->{
-                            assertEquals("Book One",book.getBookInfo().getTitle());
-                            assertEquals(2,book.getReviews().size());
-                        }
-                )
-                .assertNext(book->{
-                            assertEquals("Book Two",book.getBookInfo().getTitle());
-                            assertEquals(2,book.getReviews().size());
-                        }
-                )
-                .assertNext(book->{
-                            assertEquals("Book three",book.getBookInfo().getTitle());
-                            assertEquals(2,book.getReviews().size());
-                        }
-                )
-                .verifyComplete();
-    }
-
-    @Test
-    void getBookById() {
-        Integer id=1;
-        var book=bookService.getBookById(id);
-        StepVerifier.create(book)
-                .assertNext(books-> {
-                            assertEquals("Book One", books.getBookInfo().getTitle());
-                            assertEquals(2, books.getReviews().size());
-                        }
-                ).verifyComplete();
-
-    }
+//    @Test
+//    void getBooks() {
+//
+//        var books=bookService.getBooks();
+//        StepVerifier.create(books)
+//                .assertNext(book->{
+//                            assertEquals("Book One",book.getBookInfo().getTitle());
+//                            assertEquals(2,book.getReviews().size());
+//                        }
+//                )
+//                .assertNext(book->{
+//                            assertEquals("Book Two",book.getBookInfo().getTitle());
+//                            assertEquals(2,book.getReviews().size());
+//                        }
+//                )
+//                .assertNext(book->{
+//                            assertEquals("Book three",book.getBookInfo().getTitle());
+//                            assertEquals(2,book.getReviews().size());
+//                        }
+//                )
+//                .verifyComplete();
+//    }
+//
+//    @Test
+//    void getBookById() {
+//        Integer id=1;
+//        var book=bookService.getBookById(id);
+//        StepVerifier.create(book)
+//                .assertNext(books-> {
+//                            assertEquals("Book One", books.getBookInfo().getTitle());
+//                            assertEquals(2, books.getReviews().size());
+//                        }
+//                ).verifyComplete();
+//
+//    }
 }

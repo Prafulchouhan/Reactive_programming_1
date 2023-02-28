@@ -13,3 +13,13 @@ public class Book {
     private BookInfo bookInfo;
     private List<Review> reviews;
 }
+/*
+@Data
+@Table
+@AllArgsConstructor
+@NoArgsConstructor
+public class Book {
+    private BookInfo bookInfo;
+    private List<Review> reviews;
+}
+ */

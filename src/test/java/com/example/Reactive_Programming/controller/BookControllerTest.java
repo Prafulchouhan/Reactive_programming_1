@@ -58,7 +58,7 @@ class BookControllerTest {
 
         webTestClient.get()
                 .uri("/api/book/all")
-                .accept(MediaType.APPLICATION_JSON)
+                .accept(MediaType.valueOf(MediaType.TEXT_EVENT_STREAM_VALUE))
                 .exchange()
                 .expectStatus().isOk()
                 .expectBodyList(Book.class)
